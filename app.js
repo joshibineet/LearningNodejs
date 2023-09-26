@@ -1,25 +1,28 @@
-const a = 20;
-const b = 10;
-// console.log(a)
-// console.log(b)
-const name = "Bineet"
-console.log(name)
-const sum = a + b 
-console.log(sum)
-// console.log("Welcome to Nodejs")
+const app = require("express")()
 
-// ..... Array .......
-const number =[10,29,30]
-// console.log(number[1])
 
-// to calculate lenght
-console.log(number.length)
+// req-request , res-response 
 
-//.. objects ............
+app.get("/",(req, res)=>{
+   // res.send("<mark>Hello i am from home page</mark>")
+   res.json({
+    Joshi: "I am from home page",
+    status: "student"
+   })
 
-const person = {
-    name : "Bineet",
-    age : 23
-}
-console.log("My name is" + person.name)
-console.log(person.age)
+})
+
+app.get("/contact",(req,res)=>{
+    res.json({
+       message: "My name is Bineet Joshi"
+    
+    })
+})
+
+app.get("/about",(req,res)=>{
+    res.send("I am about us thank you")
+})
+
+app.listen(3000,(req,res)=>{
+    console.log("Nodejs has started at port 3000")
+})
